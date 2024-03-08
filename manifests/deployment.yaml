@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-deployment
+  namespace: i4talent
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastapi-app
+  template:
+    metadata:
+      labels:
+        app: fastapi-app
+    spec:
+      containers:
+      - name: fastapi-container
+        image: bartvanwoesik/gitops-app:app-20
+        ports:
+        - containerPort: 5005
+      imagePullSecrets:
+      - name: dockerhub-credentials-i4talent

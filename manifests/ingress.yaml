@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: i4talent-ingress
+  namespace: i4talent
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: i4talent-service   # Corrected service name
+                port:
+                  number: 8881          # Corrected target port
+
+    - host: app1.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: i4talent-service   # Corrected service name
+                port:
+                  number: 8881          # Corrected target port
