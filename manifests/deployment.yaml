@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: fastapi-container
-        image: bartvanwoesik/gitops-app:app-20
+        image: bartvanwoesik/gitops-app:app-1
         ports:
         - containerPort: 5005
       imagePullSecrets:
